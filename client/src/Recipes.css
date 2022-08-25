@@ -1,0 +1,23 @@
+.recipe-scroller::-webkit-scrollbar {
+    background: transparent;
+  }
+
+.search-bar {
+  text-align: center;
+}
+
+.calories-p {
+  display: inline;
+}
+
+.card-calories {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.ingredient-size {
+  text-align: center;
+}
