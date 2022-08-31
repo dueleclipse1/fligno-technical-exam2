@@ -7,14 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [loginStatus, setLoginStatus] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const navigate = useNavigate();
-
   axios.defaults.withCredentials = true;
 
   const loginHandler = (e) => {
-    e.preventDefault();
     axios
       .post("http://localhost:5000/login", {
         username: e.target.username.value,
@@ -29,7 +25,8 @@ const Login = () => {
       });
     e.target.username.value = "";
     e.target.password.value = "";
-    navigate('/')
+    window.location.reload();
+    navigate("/homepage");
   };
 
   useEffect(() => {
@@ -40,8 +37,13 @@ const Login = () => {
     });
   }, []);
 
-  const submitButtonStyle = {
-    marginTop: "10px",
+  const styles = {
+    submitButtonStyle: {
+      marginTop: "10px",
+    },
+    errorMessage: {
+      textAlign: "center"
+    } 
   };
 
   return (
@@ -67,11 +69,12 @@ const Login = () => {
               placeholder="Password"
             />
           </FloatingLabel>
-          <Button variant="primary" type="submit" style={submitButtonStyle}>
+          <Button variant="primary" type="submit" style={styles.submitButtonStyle}>
             Submit
           </Button>
         </Form>
       </div>
+      <div style={styles.errorMessage}>{loginStatus}</div>
     </>
   );
 };

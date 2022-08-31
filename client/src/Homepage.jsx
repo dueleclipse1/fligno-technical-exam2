@@ -1,14 +1,13 @@
 import React from "react";
 import Recipes from "./Recipes";
-import Button from "react-bootstrap/Button";
+import Alerts from "./Alerts";
 
 const Homepage = (props) => {
-
   return (
     <>
-      <div>
-        {props.isLoggedIn ? `Welcome, ${props.currentUser}!` : "Welcome guest"}
-        <h1>Welcome to Homepage</h1>
+      <div className="container justify-content-center">
+        {/* <h1>Welcome, {props.currentUser}!</h1> */}
+        {props.isLoggedIn ? <Alerts user={props.currentUser}/> : 'not logged in'}
       </div>
       <div>
         <Recipes />

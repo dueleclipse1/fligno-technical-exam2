@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Login from "./Login";
 import Homepage from "./Homepage";
 import Signup from "./Signup";
+import Details from "./Details";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Nav from "./Nav";
 import axios from "axios";
@@ -21,14 +22,14 @@ function App() {
       }
     });
   }, []);
-
   return (
     <>
       <div>
         <Router>
-          <Nav isLoggedIn={loggedIn} currentUser={loginStatus}/>
+          <Nav isLoggedIn={loggedIn} currentUser={loginStatus} />
           <div className="App">
             <Routes>
+              {/* protected route */}
               <Route
                 element={
                   <ProtectedRoutes
@@ -37,7 +38,13 @@ function App() {
                   />
                 }
               >
-                <Route path="/" exact element={<Homepage />}></Route>
+                <Route
+                  path="/"
+                  exact
+                  element={
+                    <Homepage isLoggedIn={loggedIn} currentUser={loginStatus} />
+                  }
+                ></Route>
                 <Route
                   path="/homepage"
                   exact
@@ -46,17 +53,15 @@ function App() {
                   }
                 ></Route>
               </Route>
+              {/* end of protected route */}
+
+              <Route path="/login" exact element={<Login />}></Route>
+              <Route path="/signup" exact element={<Signup />}></Route>
               <Route
-                element={
-                  <ProtectedRoutes
-                    isLoggedIn={loggedIn}
-                    currentUser={loginStatus}
-                  />
-                }
-              >
-                <Route path="/login" exact element={<Login />}></Route>
-                <Route path="/signup" exact element={<Signup />}></Route>
-              </Route>
+                path="/recipes/:recipeId"
+                exact
+                element={<Details />}
+              ></Route>
             </Routes>
           </div>
         </Router>

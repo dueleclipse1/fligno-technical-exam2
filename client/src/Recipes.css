@@ -1,3 +1,7 @@
+.recipe-scroller {
+  border-color: white;
+}
+
 .recipe-scroller::-webkit-scrollbar {
     background: transparent;
   }
@@ -7,7 +11,16 @@
 }
 
 .calories-p {
-  display: inline;
+  display: block;
+  text-align: center;
+  margin: 3;
+}
+
+.calories-l {
+  display: block;
+  text-align: center;
+  margin: 3;
+  font-weight: bold;
 }
 
 .card-calories {
@@ -20,4 +33,15 @@ ul {
 
 .ingredient-size {
   text-align: center;
+}
+
+.recipe-img-thumb {
+  max-width: 200;
+  margin: 20px;
+}
+
+.cardTitle {
+  font-size: 10px;
+  text-align: center;
+  margin-top: 20px;
 }

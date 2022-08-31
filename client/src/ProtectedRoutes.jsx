@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router";
+import { Outlet } from "react-router";
 import Login from "./Login";
 
 const ProtectedRoutes = (props) => {

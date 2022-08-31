@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
@@ -23,7 +23,7 @@ const Signup = () => {
       });
     e.target.username.value = "";
     e.target.password.value = "";
-    navigate('/login')
+    navigate("/login");
   };
 
   return (
